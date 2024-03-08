@@ -1,0 +1,665 @@
+[
+    {
+        "Year": 1973,
+        "Album Counts": {
+            "Ring Ring": 10,
+            "Waterloo": 0,
+            "ABBA": 0,
+            "Arrival": 0,
+            "The Album": 0,
+            "Voulez-Vous": 0,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1974,
+        "Album Counts": {
+            "Ring Ring": 8,
+            "Waterloo": 50,
+            "ABBA": 2,
+            "Arrival": 0,
+            "The Album": 0,
+            "Voulez-Vous": 0,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1975,
+        "Album Counts": {
+            "Ring Ring": 3,
+            "Waterloo": 17,
+            "ABBA": 28,
+            "Arrival": 0,
+            "The Album": 0,
+            "Voulez-Vous": 0,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1976,
+        "Album Counts": {
+            "Ring Ring": 6,
+            "Waterloo": 14,
+            "ABBA": 36,
+            "Arrival": 27,
+            "The Album": 0,
+            "Voulez-Vous": 0,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1977,
+        "Album Counts": {
+            "Ring Ring": 10,
+            "Waterloo": 13,
+            "ABBA": 17,
+            "Arrival": 67,
+            "The Album": 5,
+            "Voulez-Vous": 0,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1978,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 4,
+            "ABBA": 8,
+            "Arrival": 16,
+            "The Album": 13,
+            "Voulez-Vous": 2,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1979,
+        "Album Counts": {
+            "Ring Ring": 3,
+            "Waterloo": 6,
+            "ABBA": 4,
+            "Arrival": 13,
+            "The Album": 15,
+            "Voulez-Vous": 37,
+            "Super Trouper": 0,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1980,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 1,
+            "ABBA": 3,
+            "Arrival": 8,
+            "The Album": 6,
+            "Voulez-Vous": 21,
+            "Super Trouper": 11,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1981,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 3,
+            "ABBA": 5,
+            "Arrival": 10,
+            "The Album": 9,
+            "Voulez-Vous": 14,
+            "Super Trouper": 40,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1982,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 0,
+            "Arrival": 1,
+            "The Album": 2,
+            "Voulez-Vous": 1,
+            "Super Trouper": 3,
+            "The Visitors": 10
+        }
+    },
+    {
+        "Year": 1983,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 0,
+            "Arrival": 6,
+            "The Album": 7,
+            "Voulez-Vous": 3,
+            "Super Trouper": 3,
+            "The Visitors": 3
+        }
+    },
+    {
+        "Year": 1984,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 1,
+            "ABBA": 0,
+            "Arrival": 0,
+            "The Album": 4,
+            "Voulez-Vous": 3,
+            "Super Trouper": 6,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1985,
+        "Album Counts": {
+            "Ring Ring": 3,
+            "Waterloo": 1,
+            "ABBA": 3,
+            "Arrival": 4,
+            "The Album": 4,
+            "Voulez-Vous": 7,
+            "Super Trouper": 5,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 1986,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 1,
+            "ABBA": 0,
+            "Arrival": 1,
+            "The Album": 0,
+            "Voulez-Vous": 5,
+            "Super Trouper": 1,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1987,
+        "Album Counts": {
+            "Ring Ring": 3,
+            "Waterloo": 5,
+            "ABBA": 1,
+            "Arrival": 4,
+            "The Album": 5,
+            "Voulez-Vous": 3,
+            "Super Trouper": 2,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1988,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 2,
+            "Arrival": 0,
+            "The Album": 1,
+            "Voulez-Vous": 1,
+            "Super Trouper": 3,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1989,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 1,
+            "Arrival": 2,
+            "The Album": 3,
+            "Voulez-Vous": 1,
+            "Super Trouper": 2,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1990,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 1,
+            "ABBA": 2,
+            "Arrival": 2,
+            "The Album": 0,
+            "Voulez-Vous": 1,
+            "Super Trouper": 0,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1991,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 4,
+            "ABBA": 2,
+            "Arrival": 5,
+            "The Album": 2,
+            "Voulez-Vous": 1,
+            "Super Trouper": 2,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1992,
+        "Album Counts": {
+            "Ring Ring": 4,
+            "Waterloo": 6,
+            "ABBA": 7,
+            "Arrival": 15,
+            "The Album": 6,
+            "Voulez-Vous": 8,
+            "Super Trouper": 10,
+            "The Visitors": 4
+        }
+    },
+    {
+        "Year": 1993,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 2,
+            "ABBA": 4,
+            "Arrival": 9,
+            "The Album": 1,
+            "Voulez-Vous": 4,
+            "Super Trouper": 5,
+            "The Visitors": 2
+        }
+    },
+    {
+        "Year": 1994,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 3,
+            "ABBA": 6,
+            "Arrival": 11,
+            "The Album": 2,
+            "Voulez-Vous": 4,
+            "Super Trouper": 6,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 1995,
+        "Album Counts": {
+            "Ring Ring": 2,
+            "Waterloo": 6,
+            "ABBA": 11,
+            "Arrival": 14,
+            "The Album": 5,
+            "Voulez-Vous": 5,
+            "Super Trouper": 5,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 1996,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 5,
+            "ABBA": 7,
+            "Arrival": 6,
+            "The Album": 3,
+            "Voulez-Vous": 6,
+            "Super Trouper": 5,
+            "The Visitors": 4
+        }
+    },
+    {
+        "Year": 1997,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 4,
+            "ABBA": 7,
+            "Arrival": 9,
+            "The Album": 8,
+            "Voulez-Vous": 12,
+            "Super Trouper": 12,
+            "The Visitors": 2
+        }
+    },
+    {
+        "Year": 1998,
+        "Album Counts": {
+            "Ring Ring": 2,
+            "Waterloo": 4,
+            "ABBA": 0,
+            "Arrival": 7,
+            "The Album": 7,
+            "Voulez-Vous": 6,
+            "Super Trouper": 4,
+            "The Visitors": 2
+        }
+    },
+    {
+        "Year": 1999,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 3,
+            "ABBA": 12,
+            "Arrival": 20,
+            "The Album": 6,
+            "Voulez-Vous": 20,
+            "Super Trouper": 16,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 2000,
+        "Album Counts": {
+            "Ring Ring": 2,
+            "Waterloo": 1,
+            "ABBA": 11,
+            "Arrival": 13,
+            "The Album": 9,
+            "Voulez-Vous": 10,
+            "Super Trouper": 12,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 2001,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 3,
+            "ABBA": 6,
+            "Arrival": 12,
+            "The Album": 5,
+            "Voulez-Vous": 10,
+            "Super Trouper": 14,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 2002,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 5,
+            "Arrival": 5,
+            "The Album": 7,
+            "Voulez-Vous": 5,
+            "Super Trouper": 8,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 2003,
+        "Album Counts": {
+            "Ring Ring": 2,
+            "Waterloo": 2,
+            "ABBA": 6,
+            "Arrival": 7,
+            "The Album": 2,
+            "Voulez-Vous": 2,
+            "Super Trouper": 6,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 2004,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 3,
+            "ABBA": 9,
+            "Arrival": 14,
+            "The Album": 10,
+            "Voulez-Vous": 16,
+            "Super Trouper": 11,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 2005,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 3,
+            "ABBA": 7,
+            "Arrival": 10,
+            "The Album": 5,
+            "Voulez-Vous": 11,
+            "Super Trouper": 9,
+            "The Visitors": 3
+        }
+    },
+    {
+        "Year": 2006,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 10,
+            "ABBA": 15,
+            "Arrival": 20,
+            "The Album": 12,
+            "Voulez-Vous": 24,
+            "Super Trouper": 23,
+            "The Visitors": 8
+        }
+    },
+    {
+        "Year": 2007,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 6,
+            "ABBA": 8,
+            "Arrival": 12,
+            "The Album": 5,
+            "Voulez-Vous": 14,
+            "Super Trouper": 14,
+            "The Visitors": 4
+        }
+    },
+    {
+        "Year": 2008,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 5,
+            "ABBA": 11,
+            "Arrival": 14,
+            "The Album": 11,
+            "Voulez-Vous": 14,
+            "Super Trouper": 14,
+            "The Visitors": 6
+        }
+    },
+    {
+        "Year": 2009,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 1,
+            "ABBA": 6,
+            "Arrival": 8,
+            "The Album": 4,
+            "Voulez-Vous": 8,
+            "Super Trouper": 4,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 2010,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 2,
+            "ABBA": 3,
+            "Arrival": 3,
+            "The Album": 4,
+            "Voulez-Vous": 4,
+            "Super Trouper": 6,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 2011,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 3,
+            "ABBA": 8,
+            "Arrival": 7,
+            "The Album": 0,
+            "Voulez-Vous": 7,
+            "Super Trouper": 14,
+            "The Visitors": 3
+        }
+    },
+    {
+        "Year": 2012,
+        "Album Counts": {
+            "Ring Ring": 2,
+            "Waterloo": 2,
+            "ABBA": 6,
+            "Arrival": 5,
+            "The Album": 3,
+            "Voulez-Vous": 6,
+            "Super Trouper": 9,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 2013,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 4,
+            "ABBA": 7,
+            "Arrival": 6,
+            "The Album": 5,
+            "Voulez-Vous": 7,
+            "Super Trouper": 9,
+            "The Visitors": 3
+        }
+    },
+    {
+        "Year": 2014,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 4,
+            "Arrival": 4,
+            "The Album": 0,
+            "Voulez-Vous": 2,
+            "Super Trouper": 4,
+            "The Visitors": 4
+        }
+    },
+    {
+        "Year": 2015,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 6,
+            "Arrival": 9,
+            "The Album": 4,
+            "Voulez-Vous": 4,
+            "Super Trouper": 6,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 2016,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 4,
+            "ABBA": 7,
+            "Arrival": 11,
+            "The Album": 6,
+            "Voulez-Vous": 8,
+            "Super Trouper": 10,
+            "The Visitors": 3
+        }
+    },
+    {
+        "Year": 2017,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 3,
+            "ABBA": 2,
+            "Arrival": 9,
+            "The Album": 5,
+            "Voulez-Vous": 9,
+            "Super Trouper": 10,
+            "The Visitors": 4
+        }
+    },
+    {
+        "Year": 2018,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 7,
+            "ABBA": 11,
+            "Arrival": 19,
+            "The Album": 4,
+            "Voulez-Vous": 13,
+            "Super Trouper": 11,
+            "The Visitors": 5
+        }
+    },
+    {
+        "Year": 2019,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 2,
+            "ABBA": 3,
+            "Arrival": 7,
+            "The Album": 0,
+            "Voulez-Vous": 5,
+            "Super Trouper": 9,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 2020,
+        "Album Counts": {
+            "Ring Ring": 4,
+            "Waterloo": 11,
+            "ABBA": 16,
+            "Arrival": 17,
+            "The Album": 11,
+            "Voulez-Vous": 12,
+            "Super Trouper": 10,
+            "The Visitors": 14
+        }
+    },
+    {
+        "Year": 2021,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 1,
+            "ABBA": 8,
+            "Arrival": 6,
+            "The Album": 1,
+            "Voulez-Vous": 5,
+            "Super Trouper": 14,
+            "The Visitors": 0
+        }
+    },
+    {
+        "Year": 2022,
+        "Album Counts": {
+            "Ring Ring": 1,
+            "Waterloo": 1,
+            "ABBA": 1,
+            "Arrival": 2,
+            "The Album": 0,
+            "Voulez-Vous": 5,
+            "Super Trouper": 4,
+            "The Visitors": 1
+        }
+    },
+    {
+        "Year": 2023,
+        "Album Counts": {
+            "Ring Ring": 0,
+            "Waterloo": 0,
+            "ABBA": 1,
+            "Arrival": 4,
+            "The Album": 0,
+            "Voulez-Vous": 4,
+            "Super Trouper": 3,
+            "The Visitors": 0
+        }
+    }
+]

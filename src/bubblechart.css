@@ -1,0 +1,16 @@
+.tooltip {
+  position: absolute;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: #181818;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  color: #ff8c00;
+  border: 2px solid #ff8c00; /* Add border */
+  transition: opacity 0.3s;
+  /* Adjust positioning */
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+}

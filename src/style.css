@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap");
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1400px; 
+  grid-template-rows: 50px auto 200px 50px;
+  grid-gap: 10px;
+  margin: 10px;
+  width: calc(1600px + 10px);
+  height: calc(100vh - 20px);
+  box-sizing: border-box;
+}
+
+
+.grid-item {
+  background-color: #181818;
+  border-radius: 7px;
+  display: flex;
+  overflow: hidden;
+}
+
+
+.home, .filter, .about,  .map, .chart, .timeline {
+  height: 100%;
+}
+
+.home {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.filter {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.about {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+
+.map {
+  grid-column: 2;
+  grid-row: 1/3;
+}
+
+
+.chart {
+  grid-column: 2;
+  grid-row: 3/4;
+}
+
+.timeline {
+  grid-column:2/3;
+  grid-row: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  color: #ff8c00;
+}
+/*
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #5b21b6, #1e40af);
+  color: #fff;
+}
+*/
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Align items vertically */
+  flex-wrap: wrap; /* Allow items to wrap */
+  max-width: 100%; /* Ensure the container doesn't exceed grid width */
+  overflow: hidden; /* Hide overflow if items exceed width */
+  margin-top: 19px;
+  overflow-y: scroll;
+  position: relative;
+}
+.button {
+  width: 160px;
+  height: 20%;
+  color: #ff8c00;
+  border: 1px solid #ff8c00;
+  background: transparent;
+  margin: 5px 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.button-select {
+  color: #ffffff80;
+  border: 1px solid #ffffff80;
+  background: transparent;
+  margin: 5px 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 3px 3px 0px 0px #ffffff;
+}
+
+.button-select:hover {
+  box-shadow: 3px 3px 0px 0px #ffffff;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  padding: 4px 10px;
+  min-width: 100px;
+  min-height: 50px;
+  margin: 4px 10px;
+  border: 1px solid #ff8c00;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/*
+.category {
+  color: #64748b;
+  font-size: 10px;
+}
+*/
+
+.active {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+.album-filter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  margin: 5px; /* Adjust margin as needed */
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.image-button {
+  width: 160px; /* Adjust image button width */
+  height: auto;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-top: 2px;
+}
+
+.album-filter.active .image-button {
+  border: 2px solid #ff8c00;
+}
+
+.song-filters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  max-height: 500px;
+}
+
+.song-filter-button {
+  margin: 5px 0; /* Add some vertical margin between song filter buttons */
+}
