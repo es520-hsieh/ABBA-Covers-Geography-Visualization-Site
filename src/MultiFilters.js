@@ -24,6 +24,7 @@ export default function MultiFilters() {
   const [filteredItems, setFilteredItems] = useState(items);
   const [showSongFilters, setShowSongFilters] = useState(false);
 
+
   const albumImages = {
     "Ring Ring": require('./Ring Ring.png'),
     "Waterloo": require('./Waterloo.png'),
@@ -99,20 +100,26 @@ export default function MultiFilters() {
     setSelectedSongFilters([]);
   };
 
-  const [currentChart, setCurrentChart] = useState('BarChart');
+  const [currentChart, setCurrentChart] = useState('Streamgraph');
 
-  const renderChart = () => {
-    switch(currentChart) {
-      case 'BarChart':
-        return <BarChart minValue={value[0]} maxValue={value[1]} />;
-      case 'Streamgraph':
-        return <Streamgraph minValue={value[0]} maxValue={value[1]} />;
-      case 'TreeMapChart':
-        return <TreeMapChart minValue={value[0]} maxValue={value[1]} />;
-      default:
-        return null; // Or <BarChart /> as default
-    }
-  };
+const renderChart = () => {
+  switch(currentChart) {
+    case 'BarChart':
+      return <BarChart minValue={value[0]} maxValue={value[1]} />;
+    case 'Streamgraph':
+      return <Streamgraph minValue={value[0]} maxValue={value[1]} />;
+    case 'TreeMapChart':
+      // Wrap TreeMapChart in a div with the adjusted styling for bottom alignment
+      return (
+        <div className="treemap-chart-container">
+          <TreeMapChart minValue={value[0]} maxValue={value[1]} />
+        </div>
+      );
+    default:
+      return null; // Or set a default chart
+  }
+};
+  
 
   const iOSBoxShadow =
   '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
@@ -217,7 +224,9 @@ export default function MultiFilters() {
   return (
     <div>
       <div className="grid-container">
-        <div className="grid-item home"></div>
+        <div className="grid-item home">
+        <span class="abba">A</span><span class="flipped-b">B</span><span class="abba">BA</span><span class="verse">VERSE</span>
+        </div>
         <div className="grid-item filter">
           <div className="buttons-container">
               <div>
@@ -253,6 +262,7 @@ export default function MultiFilters() {
             </div>
           </div>
         </div>
+        <div className="grid-item about"><span class="circle-question">&#x24D8;</span>INFORMATION</div>
         <div className="grid-item map">
           <Map
             selectedAlbumFilters={selectedAlbumFilters}
@@ -264,13 +274,13 @@ export default function MultiFilters() {
         <div className="grid-item chart">
           {renderChart()}
           <div className="chart-switcher">
-            <button onClick={() => setCurrentChart('BarChart')}>Bar Chart</button>
-            <button onClick={() => setCurrentChart('Streamgraph')}>Streamgraph</button>
-            <button onClick={() => setCurrentChart('TreeMapChart')}>Tree Map Chart</button>
-          </div>
+  <button className={currentChart === 'BarChart' ? 'active' : ''} onClick={() => setCurrentChart('BarChart')}>Countries and Regions</button>
+  <button className={currentChart === 'Streamgraph' ? 'active' : ''} onClick={() => setCurrentChart('Streamgraph')}>Release Year</button>
+  <button className={currentChart === 'TreeMapChart' ? 'active' : ''} onClick={() => setCurrentChart('TreeMapChart')}>Album</button>
+</div>
         </div>
         <div className="grid-item timeline">
-          <Box sx={{ width: 1100}}>
+          <Box sx={{ width: 1300}}>
             <StyledSlider
               getAriaLabel={() => 'Release Year range'}
               min={1970}
@@ -280,6 +290,14 @@ export default function MultiFilters() {
               valueLabelDisplay="on"
               getAriaValueText={valuetext}
               marks={marks}
+              sx={{
+      '& .MuiSlider-mark': {
+        color: 'gray', // 设置标记为浅灰色
+      },
+      '& .MuiSlider-markLabel': {
+        color: 'gray', // 如果您也想改变标记标签的颜色
+      },
+    }}
             />
           </Box>
         </div>

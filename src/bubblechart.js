@@ -36,9 +36,16 @@ const BubbleChart = ({ popupCountry, bubbleData, onBubbleClick }) => {
 
     const root = d3.hierarchy(hierarchyData).sum(d => d.value).sort((a, b) => b.value - a.value);
     const bubble = d3.pack().size([600, 600]).padding(1.5);
-    const svg = d3.select("#bubbleChart").append("svg").attr("width", 600).attr("height", 600).attr("class", "bubble");
+    const svg = d3.select("#bubbleChart").append("svg")
+  .attr("width", 600)
+  .attr("height", 600)
+  .attr("class", "bubble")
+  .style("transform", "translate(0px, -200px)"); // 添加这行代码来调整位置
+
     const nodes = bubble(root).descendants();
     const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    
 
     const tooltip = d3.select("#chartTooltip");
 
@@ -52,18 +59,14 @@ const BubbleChart = ({ popupCountry, bubbleData, onBubbleClick }) => {
       .attr("r", d => d.r)
       .style("fill", d => color(d.parent.data.name))
       .on("mouseover", function(event, d) {
-        tooltip.style("opacity", 1);
-        tooltip.html(`${d.data.name}<br/>Covers: ${d.value}`)
-          .style("left", (event.pageX + 0) + "px")
-          .style("top", (event.pageY - 10) + "px");
         d3.select(this)
           .style("stroke", "white")
           .style("stroke-width", 3);
         d3.select(this.parentNode).select("title")
           .text(`${d.parent.data.name}: ${d.data.name} (${d.value})`);
       })
+      
       .on("mouseout", function() {
-        tooltip.style("opacity", 0);
         d3.select(this)
         .style("stroke", null)
         .style("stroke-width", null);

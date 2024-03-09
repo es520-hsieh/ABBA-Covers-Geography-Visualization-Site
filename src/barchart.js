@@ -73,7 +73,7 @@ const MyD3Component = ({minValue, maxValue}) => {
     const svg = d3.select("#myD3Chart");
     svg.selectAll("*").remove();
   
-    const margin = {top: 20, right: 20, bottom: 30, left: 40},
+    const margin = {top: 60, right: 20, bottom: 60, left: 20},
           width = +svg.attr("width") - margin.left - margin.right,
           height = +svg.attr("height") - margin.top - margin.bottom,
           x = d3.scaleBand().rangeRound([0, width]).padding(0.4),
@@ -91,9 +91,14 @@ const MyD3Component = ({minValue, maxValue}) => {
 
     const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
+    const albumOrder = [
+      "Ring Ring", "Waterloo", "ABBA", "Arrival", 
+      "The Album", "Voulez-Vous", "Super Trouper", "The Visitors"
+    ];
+
     x.domain(loadedData[0].map(d => d.data.country));
     y.domain([0, d3.max(loadedData, d => d3.max(d, d => d.data.total))]);
-    z.domain(loadedData.map(d => d.key));
+    z.domain(albumOrder);
 
     // Adjusting X and Y axis font color to white
     svg.append("style").text(`
@@ -105,6 +110,24 @@ const MyD3Component = ({minValue, maxValue}) => {
         stroke: white;
       }
     `);
+
+    g.append("g")
+    .attr("class", "grid")
+    .call(d3.axisLeft(y)
+        .ticks(6)
+        .tickSize(-width)
+        .tickFormat(d => d) // 显示刻度值
+    )
+    .selectAll(".tick line")
+    .attr("stroke", "grey")
+    .attr("stroke-width", "2")
+    .attr("stroke-dasharray", "2,2");
+
+
+
+    g.selectAll(".domain").remove(); // 移除轴线
+
+
 
     const series = g.selectAll(".serie")
     .data(loadedData)
@@ -155,16 +178,41 @@ const MyD3Component = ({minValue, maxValue}) => {
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x));
 
-    g.append("g")
-        .attr("class", "axis axis--y")
-        .call(d3.axisLeft(y).ticks(10));
+        const legend = svg.append("g")
+        .attr("class", "legend")
+        .attr("transform", `translate(${margin.left},${height + margin.top + 40})`); // 将图例放置在条形图下方
+
+    const legendItem = legend.selectAll(".legend-item")
+        .data(z.domain()) // 使用颜色比例尺的域来生成图例项
+        .enter().append("g")
+        .attr("class", "legend-item")
+        .attr("transform", (d, i) => `translate(${i * 120}, -10)`); // 水平排列图例项
+
+    legendItem.append("rect")
+        .attr("width", 18)
+        .attr("height", 18)
+        .attr("fill", z); // 使用与条形图相同的颜色比例尺
+
+    legendItem.append("text")
+        .attr("x", 24)
+        .attr("y", 9)
+        .attr("dy", "0.35em")
+        .style("text-anchor", "start")
+        .attr("fill", "white") // 设置文本颜色为白色
+        .text(d => d); // 显示专辑名称
+
+
   };
 
   return (
     <>
-      <svg id="myD3Chart" width="1400" height="200"></svg>
-      <button onClick={prevPage} disabled={currentPage === 0}>Previous</button>
-      <button onClick={nextPage} disabled={currentPage === totalPages - 1}>Next</button>
+
+  <svg id="myD3Chart" width="1400" height="200"></svg>
+  <div className="chart-navigation" style={{ position: 'absolute', right: '5px', top: '5px' }}>
+    <button onClick={prevPage} disabled={currentPage === 0} class="my-custom-button">Previous</button>
+    <button onClick={nextPage} disabled={currentPage === totalPages - 1} class="my-custom-button">Next</button>
+  </div>
+
     </>
   );
 };

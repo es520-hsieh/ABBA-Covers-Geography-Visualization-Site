@@ -38,7 +38,8 @@ const TreeMapChart = ({ minValue, maxValue }) => {
   };
 
   const drawChart = () => {
-    d3.select("#myTreeMapChart").selectAll("*").remove();
+    const svgElement = d3.select(svgRef.current);
+    svgElement.selectAll("*").remove();
 
     const albumCounts = d3.rollup(loadedData, v => v.length, d => d['Album']);
     const sortedAlbum = Array.from(albumCounts).sort((a, b) => b[1] - a[1]);
@@ -60,12 +61,12 @@ const TreeMapChart = ({ minValue, maxValue }) => {
     };
 
     const root = d3.hierarchy(data).sum(d => d.value);
-    const treemap = d3.treemap().size([1300, 150]).padding(1);
+    const treemap = d3.treemap().size([1350, 110]).padding(1);
     treemap(root);
 
-    const svg = d3.select("#myTreeMapChart")
-                  .attr("width", 1300)
-                  .attr("height", 150);
+    const svg = svgElement
+    .attr("width", 1350)
+    .attr("height", 110);
 
     svg.selectAll("*").remove();
 
@@ -114,19 +115,22 @@ tooltip.transition()
  .style("opacity", 0);
 });
       
-    svg.selectAll(".node")
-      .data(root.descendants().filter(d => d.depth === 1))
-      .enter().append("text")
-      .attr("dy", ".35em")
-      .style("opacity", 0)
-      .attr("text-anchor", "middle")
-      .text(d => d.data.name)
-      .attr("transform", d => `translate(${d.x0 + (d.x1 - d.x0) / 2},${d.y0 + (d.y1 - d.y0) / 2})`)
-      .style("opacity", 1);
+svg.selectAll(".node")
+  .data(root.descendants().filter(d => d.depth === 1))
+  .enter().append("text")
+    .attr("dy", "1em") // 垂直对齐，稍微下移使得文本不紧贴上边缘
+    .attr("dx", "5") // 水平对齐，稍微右移使得文本不紧贴左边缘
+    .style("fill", "white") // 设置文本颜色为白色
+    .style("font-weight", "bold") // 设置文本为粗体
+    .attr("text-anchor", "start") // 将文本锚点设置为起始端，有助于从左向右排列文本
+    .text(d => d.data.name)
+    .attr("transform", d => `translate(${d.x0 + 5},${d.y0 + 5})`); // 将文本位置设置到每个矩形的左上角，距离边缘5像素
+
+      
   };
 
   return (
-    <svg ref={svgRef} width="1450" height="250"></svg>
+    <svg ref={svgRef} width="1350" height="130"></svg>
   );
 };
 

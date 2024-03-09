@@ -210,27 +210,33 @@ const Map = ({ selectedAlbumFilters, selectedSongFilters, minValue, maxValue }) 
             )}
             <div className="map-overlay">
             <div className="stats-box" style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 999, color: '#ff8c00', padding: '10px' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <div className="cover-min-box" style={{ marginRight: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #ff8c00' }}>CoverMin: {minArtistCount}</div>
-                    <img src="./colorLabeling.jpeg" alt="" />
-                    <div className="cover-max-box" style={{ backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #ff8c00' }}>CoverMax: {maxArtistCount}</div>
-                </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div className="cover-min-box" style={{ marginRight: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #ff8c00', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <span style={{ fontSize: 'smaller' }}>MIN</span>
+        {minArtistCount}
+    </div>
+    <img src="./colorLabeling.jpeg" alt="" style={{ borderRadius: '10px', border: '2px solid #ff8c00', width: '300px', height: '20px', objectFit: 'fill' }} />
+    <div className="cover-max-box" style={{ marginLeft: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #ff8c00', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <span style={{ fontSize: 'smaller' }}>MAX</span>
+        {maxArtistCount}
+    </div>
+</div>
             </div>
             </div>
             <div ref={mapContainerRef} style={{ width: '100%', height: '100%' }} />
             <button
-                onClick={toggleProjection}
-                style={{
-                    position: 'absolute',
-                    left: '50%',
-                    bottom: '10px',
-                    zIndex: 1,
-                    transform: 'translateX(-50%)',
-                }}
-                className="toggle-projection-btn"
-            >
-                Switch Projection
-            </button>
+    onClick={toggleProjection}
+    style={{
+        position: 'absolute',
+        left: '50%',
+        bottom: '10px',
+        zIndex: 1,
+        transform: 'translateX(-50%)',
+    }}
+    className="toggle-projection-btn"
+>
+    SWITCH MODE
+</button>
         </div>
     );
 };

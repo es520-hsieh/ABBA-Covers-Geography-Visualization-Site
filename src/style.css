@@ -47,7 +47,31 @@ body {
 .home {
   grid-column: 1;
   grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.grid-item.home {
+  font-family: Arial, sans-serif; /* 根据需要调整字体 */
+  font-size: 24px; /* 根据需要调整字号 */
+  text-align: center;
+}
+
+.abba {
+  color: #ff8c00;
+}
+
+.verse {
+  color: white;
+}
+
+.flipped-b {
+  display: inline-block;
+  transform: scaleX(-1); /* 水平翻转 */
+  color: #ff8c00;
+}
+
 
 .filter {
   grid-column: 1;
@@ -65,6 +89,24 @@ body {
 .about {
   grid-column: 1;
   grid-row: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item.about {
+  color: white; /* 设置文本颜色为白色 */
+  font-family: Arial, sans-serif; /* 调整字体 */
+  font-size: 20px; /* 调整字号 */
+  text-align: center;
+}
+
+.circle-question {
+  font-size: 0.8em; /* 可调整问号字符的大小 */
+  vertical-align: middle; /* 根据需要调整对齐 */
+  color: #ff8c00;
+ /* 设置圆圈里的问号字符颜色为橙色 */
+ margin-right: 10px; /* 在圆圈字符和"INFORMATION"之间添加间隔 */
 }
 
 
@@ -77,7 +119,80 @@ body {
 .chart {
   grid-column: 2;
   grid-row: 3/4;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+
+.treemap-chart-container {
+  width: 100%; /* 使得容器宽度填满父容器 */
+  display: flex;
+  flex-direction: column; /* 子项垂直排列 */
+  justify-content: flex-end; /* 使内容靠近底部 */
+  align-items: center; /* 水平居中对齐子项 */
+  margin-top: auto; /* 推动所有内容到底部 */
+  padding-bottom: 25px; /* 距离底部10px */
+}
+
+
+.chart-switcher {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 5px;
+  z-index: 1; /* 确保在最上层 */
+}
+
+.chart-switcher button {
+  border-radius: 20px;
+  border: 2px solid #ff8c00;
+  background-color: black;
+  color: #ff8c00;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.chart-switcher button:hover,
+.chart-switcher button.active {
+  background-color: #ff8c00;
+  color: black;
+}
+
+.my-custom-button {
+  background-color: black;
+  color: #ff8c00;
+  border: 2px solid #ff8c00;
+  border-radius: 5px;
+  margin-right: 5px; /* 按钮间的间距 */
+  padding: 5px 10px; /* 文字与边框的距离 */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* 平滑的颜色过渡效果 */
+}
+
+.my-custom-button:disabled {
+  color: gray;
+  border-color: gray;
+  cursor: not-allowed;
+}
+
+.my-custom-button:not(:disabled):hover {
+  background-color: #ff8c00;
+  color: black;
+}
+
+/* 位于 grid-item chart 右上方的定位样式 */
+.chart-navigation {
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 
 .timeline {
   grid-column:2/3;

@@ -107,7 +107,10 @@ const CountryPopup = ({ countryName, onClose, bubbleData }) => {
     setPage(0);
   };
 
+  
+
   return (
+    
     <div className="popup">
       <div className="popup-content">
         <h2>{countryName}</h2>
@@ -120,9 +123,9 @@ const CountryPopup = ({ countryName, onClose, bubbleData }) => {
               <Table size="small" aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell sx={{ width: 1/2 }}>Song-url</TableCell>
-                    <TableCell sx={{ width: 1/2 }}>Artist-url</TableCell>
-                    <TableCell sx={{ width: 1/4 }}>Release year</TableCell>
+                    <TableCell sx={{ width: 1/2 }}>Song</TableCell>
+                    <TableCell sx={{ width: 1/2 }}>Artist</TableCell>
+                    <TableCell sx={{ width: 1/4 }}>Year</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

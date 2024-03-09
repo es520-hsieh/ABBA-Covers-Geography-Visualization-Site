@@ -96,3 +96,23 @@ text-decoration: underline; /* Underline on hover */
     transform: translateY(-50%);
   }
   
+  .toggle-projection-btn {
+    border-radius: 20px; /* 添加圆角 */
+    background-color: black; /* 设置背景颜色为黑色 */
+    color: #ff8c00; /* 设置字体颜色为橙色 */
+    border: 2px solid #ff8c00; /* 设置边缘为橙色 */
+    padding: 10px 20px; /* 根据需要调整按钮内部的空间 */
+    cursor: pointer; /* 将鼠标光标变为指针形状 */
+    transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+}
+
+.toggle-projection-btn:hover {
+    background-color: #ff8c00; /* 鼠标悬停时背景变为橙色 */
+    color: black; /* 鼠标悬停时字体变为黑色 */
+}
+
+#bubbleChart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
