@@ -35,12 +35,12 @@ const BubbleChart = ({ popupCountry, bubbleData, onBubbleClick }) => {
     }
 
     const root = d3.hierarchy(hierarchyData).sum(d => d.value).sort((a, b) => b.value - a.value);
-    const bubble = d3.pack().size([600, 600]).padding(1.5);
+    const bubble = d3.pack().size([500, 500]).padding(1.5);
     const svg = d3.select("#bubbleChart").append("svg")
   .attr("width", 600)
   .attr("height", 600)
   .attr("class", "bubble")
-  .style("transform", "translate(0px, -200px)"); // æ·»åŠ è¿™è¡Œä»£ç æ¥è°ƒæ•´ä½ç½®
+  .style("transform", "translate(0px, -200px)"); // æ·»å??è¿?è¡?ä»??????¥è????´ä??ç½?
 
     const nodes = bubble(root).descendants();
     const color = d3.scaleOrdinal(d3.schemeCategory10);

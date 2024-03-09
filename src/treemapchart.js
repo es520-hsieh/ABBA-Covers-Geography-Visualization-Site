@@ -97,7 +97,7 @@ return albumColors[d.parent.data.name](originalIndex);
 })
 .on("mouseover", function(event, d) {
 d3.select(this)
-.style("stroke", "Orange")
+.style("stroke", "#d63384")
 .style("stroke-width", 3);
 tooltip.transition()
  .duration(200)
@@ -118,13 +118,13 @@ tooltip.transition()
 svg.selectAll(".node")
   .data(root.descendants().filter(d => d.depth === 1))
   .enter().append("text")
-    .attr("dy", "1em") // 垂直对齐，稍微下移使得文本不紧贴上边缘
-    .attr("dx", "5") // 水平对齐，稍微右移使得文本不紧贴左边缘
-    .style("fill", "white") // 设置文本颜色为白色
-    .style("font-weight", "bold") // 设置文本为粗体
-    .attr("text-anchor", "start") // 将文本锚点设置为起始端，有助于从左向右排列文本
+    .attr("dy", "1em") // ?????�对�?�?�?微�??移使�??????��??紧贴�?边�??
+    .attr("dx", "5") // 水平对�??�?�?微�?�移使�???????��??紧贴左边�?
+    .style("fill", "white") // 设置?????��????�为??��??
+    .style("font-weight", "bold") // 设置?????�为�?�?
+    .attr("text-anchor", "start") // �??????��????�设置为起�??端�???????��??�?左�????��???????????
     .text(d => d.data.name)
-    .attr("transform", d => `translate(${d.x0 + 5},${d.y0 + 5})`); // 将文本位置设置到每个矩形的左上角，距离边缘5像素
+    .attr("transform", d => `translate(${d.x0 + 5},${d.y0 + 5})`); // �??????��??置设置�?��??个�?�形???左�??�?�?�?离边�?5???�?
 
       
   };

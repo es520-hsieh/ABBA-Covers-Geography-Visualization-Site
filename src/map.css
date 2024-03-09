@@ -39,7 +39,7 @@
     transform: translate(-50%, -50%);
     background-color: #181818;
     padding: 20px;
-    border: 2.5px solid #ff8c00;
+    border: 2.5px solid #d63384;
     border-radius: 10px;
     z-index: 1000;
     width: 70%; /* Set width to 80% of the screen */
@@ -47,17 +47,19 @@
     height: 85%; /* Allow the height to adjust based on content */
     max-height: 800px; /* Optional: Set a maximum height to limit the size */
     overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
+    scrollbar-color: #d63384 #181818;
+    scrollbar-width: thin;
     box-shadow: 1px 1px 3px 2px #ebaf65;
 }
 
 .popup-content {
     text-align: center;
-    color: #ff8c00;
+    color: #d63384;
 }
 
 .close-btn {
-    color: #ff8c00;
-    border: 2.5px solid #ff8c00;
+    color: #d63384;
+    border: 2.5px solid #d63384;
     background: transparent;
     margin: 5px 5px;
     border-radius: 5px;
@@ -76,39 +78,41 @@
   }
 
 .popup-table {
-margin-left: 480px;
+/*margin-left: 480px;*/
+/*transform: translateY(20%);*/
+margin-top: 20%; 
 }
 
 .popup-table a {
-color: #ff8c00; /* Set the color of the links */
+color: #d63384; /* Set the color of the links */
 text-decoration: none; /* Remove underline */
 }
 
 .popup-table a:hover {
-color: #ff8c00; /* Change color on hover */
+color: #d63384; /* Change color on hover */
 text-decoration: underline; /* Underline on hover */
 }
 
 #bubbleChart {
     position: absolute;
     top: 70%;
-    right: 47%;
-    transform: translateY(-50%);
+    right: 40%;
+    transform: translateY(-15%);
   }
   
   .toggle-projection-btn {
-    border-radius: 20px; /* 添加圆角 */
-    background-color: black; /* 设置背景颜色为黑色 */
-    color: #ff8c00; /* 设置字体颜色为橙色 */
-    border: 2px solid #ff8c00; /* 设置边缘为橙色 */
-    padding: 10px 20px; /* 根据需要调整按钮内部的空间 */
-    cursor: pointer; /* 将鼠标光标变为指针形状 */
-    transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+    border-radius: 20px; /* 添�?????�? */
+    background-color: black; /* 设置?????��????�为�???? */
+    color: #d63384; /* 设置�?�?�???�为�???? */
+    border: 2px solid #d63384; /* 设置边�??为�????? */
+    padding: 10px 20px; /* ??��?��??�?�???��????��????��??空�?? */
+    cursor: pointer; /* �?�?????????????为�?????形�?? */
+    transition: background-color 0.3s, color 0.3s; /* 平�??�?渡�????? */
 }
 
 .toggle-projection-btn:hover {
-    background-color: #ff8c00; /* 鼠标悬停时背景变为橙色 */
-    color: black; /* 鼠标悬停时字体变为黑色 */
+    background-color: #d63384; /* �??????��????��????��??为�????? */
+    color: black; /* �??????��????��??�????为�????? */
 }
 
 #bubbleChart {

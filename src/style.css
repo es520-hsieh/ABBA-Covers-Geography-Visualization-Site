@@ -53,13 +53,13 @@ body {
 }
 
 .grid-item.home {
-  font-family: Arial, sans-serif; /* æ ¹æ®éœ€è¦è°ƒæ•´å­—ä½“ */
-  font-size: 24px; /* æ ¹æ®éœ€è¦è°ƒæ•´å­—å· */
+  font-family: Arial, sans-serif; /* ??¹æ?®é??è¦?è°???´å??ä½? */
+  font-size: 24px; /* ??¹æ?®é??è¦?è°???´å????? */
   text-align: center;
 }
 
 .abba {
-  color: #ff8c00;
+  color: #d63384;
 }
 
 .verse {
@@ -69,7 +69,7 @@ body {
 .flipped-b {
   display: inline-block;
   transform: scaleX(-1); /* æ°´å¹³ç¿»è½¬ */
-  color: #ff8c00;
+  color: #d63384;
 }
 
 
@@ -95,18 +95,18 @@ body {
 }
 
 .grid-item.about {
-  color: white; /* è®¾ç½®æ–‡æœ¬é¢œè‰²ä¸ºç™½è‰² */
-  font-family: Arial, sans-serif; /* è°ƒæ•´å­—ä½“ */
-  font-size: 20px; /* è°ƒæ•´å­—å· */
+  color: white; /* è®¾ç½®?????¬é????²ä¸º??½è?? */
+  font-family: Arial, sans-serif; /* è°???´å??ä½? */
+  font-size: 20px; /* è°???´å????? */
   text-align: center;
 }
 
 .circle-question {
-  font-size: 0.8em; /* å¯è°ƒæ•´é—®å·å­—ç¬¦çš„å¤§å° */
-  vertical-align: middle; /* æ ¹æ®éœ€è¦è°ƒæ•´å¯¹é½ */
-  color: #ff8c00;
- /* è®¾ç½®åœ†åœˆé‡Œçš„é—®å·å­—ç¬¦é¢œè‰²ä¸ºæ©™è‰² */
- margin-right: 10px; /* åœ¨åœ†åœˆå­—ç¬¦å’Œ"INFORMATION"ä¹‹é—´æ·»åŠ é—´éš” */
+  font-size: 0.8em; /* ??¯è????´é?®å?·å??ç¬¦ç??å¤§å?? */
+  vertical-align: middle; /* ??¹æ?®é??è¦?è°???´å¯¹é½? */
+  color: #d63384;
+ /* è®¾ç½®??????????????®å?·å??ç¬¦é????²ä¸ºæ©???? */
+ margin-right: 10px; /* ??¨å?????å­?ç¬¦å??"INFORMATION"ä¹???´æ·»?????´é?? */
 }
 
 
@@ -128,13 +128,13 @@ body {
 
 
 .treemap-chart-container {
-  width: 100%; /* ä½¿å¾—å®¹å™¨å®½åº¦å¡«æ»¡çˆ¶å®¹å™¨ */
+  width: 100%; /* ä½¿å??å®¹å?¨å®½åº¦å¡«æ»¡ç?¶å®¹??? */
   display: flex;
-  flex-direction: column; /* å­é¡¹å‚ç›´æ’åˆ— */
-  justify-content: flex-end; /* ä½¿å†…å®¹é è¿‘åº•éƒ¨ */
-  align-items: center; /* æ°´å¹³å±…ä¸­å¯¹é½å­é¡¹ */
-  margin-top: auto; /* æ¨åŠ¨æ‰€æœ‰å†…å®¹åˆ°åº•éƒ¨ */
-  padding-bottom: 25px; /* è·ç¦»åº•éƒ¨10px */
+  flex-direction: column; /* å­?é¡¹å????´æ????? */
+  justify-content: flex-end; /* ä½¿å??å®¹é??è¿?åº???? */
+  align-items: center; /* æ°´å¹³å±?ä¸­å¯¹é½?å­?é¡? */
+  margin-top: auto; /* ??¨å?¨æ????????å®¹å?°å????? */
+  padding-bottom: 25px; /* è·?ç¦»å?????10px */
 }
 
 
@@ -144,14 +144,14 @@ body {
   left: 10px;
   display: flex;
   gap: 5px;
-  z-index: 1; /* ç¡®ä¿åœ¨æœ€ä¸Šå±‚ */
+  z-index: 1; /* ç¡®ä????¨æ??ä¸?å±? */
 }
 
 .chart-switcher button {
   border-radius: 20px;
-  border: 2px solid #ff8c00;
+  border: 2px solid #d63384;
   background-color: black;
-  color: #ff8c00;
+  color: #d63384;
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
@@ -159,19 +159,19 @@ body {
 
 .chart-switcher button:hover,
 .chart-switcher button.active {
-  background-color: #ff8c00;
+  background-color: #d63384;
   color: black;
 }
 
 .my-custom-button {
   background-color: black;
-  color: #ff8c00;
-  border: 2px solid #ff8c00;
+  color: #d63384;
+  border: 2px solid #d63384;
   border-radius: 5px;
-  margin-right: 5px; /* æŒ‰é’®é—´çš„é—´è· */
-  padding: 5px 10px; /* æ–‡å­—ä¸è¾¹æ¡†çš„è·ç¦» */
+  margin-right: 5px; /* ?????®é?´ç????´è?? */
+  padding: 5px 10px; /* ???å­?ä¸?è¾¹æ?????è·?ç¦? */
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* å¹³æ»‘çš„é¢œè‰²è¿‡æ¸¡æ•ˆæœ */
+  transition: background-color 0.3s, color 0.3s; /* å¹³æ?????é¢???²è??æ¸¡æ????? */
 }
 
 .my-custom-button:disabled {
@@ -181,11 +181,11 @@ body {
 }
 
 .my-custom-button:not(:disabled):hover {
-  background-color: #ff8c00;
+  background-color: #d63384;
   color: black;
 }
 
-/* ä½äº grid-item chart å³ä¸Šæ–¹çš„å®šä½æ ·å¼ */
+/* ä½?äº? grid-item chart ??³ä????¹ç??å®?ä½???·å?? */
 .chart-navigation {
   display: flex;
   position: absolute;
@@ -206,7 +206,7 @@ h1,
 p {
   margin: 0;
   padding: 0;
-  color: #ff8c00;
+  color: #d63384;
 }
 /*
 .container {
@@ -219,7 +219,6 @@ p {
   color: #fff;
 }
 */
-
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -230,12 +229,14 @@ p {
   margin-top: 19px;
   overflow-y: scroll;
   position: relative;
+  scrollbar-color: #d63384 #181818;
+  scrollbar-width: thin;
 }
 .button {
   width: 160px;
   height: 20%;
-  color: #ff8c00;
-  border: 1px solid #ff8c00;
+  color: #d63384;
+  border: 1px solid #d63384;
   background: transparent;
   margin: 5px 5px;
   border-radius: 5px;
@@ -246,8 +247,8 @@ p {
 }
 
 .button-select {
-  color: #ffffff80;
-  border: 1px solid #ffffff80;
+  color: #d63384;
+  border: 1px solid #d63384;
   background: transparent;
   margin: 5px 5px;
   border-radius: 5px;
@@ -277,7 +278,7 @@ p {
   min-width: 100px;
   min-height: 50px;
   margin: 4px 10px;
-  border: 1px solid #ff8c00;
+  border: 1px solid #d63384;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -292,7 +293,7 @@ p {
 */
 
 .active {
-  background-color: #1e293b;
+  background-color: #181818;
   color: #fff;
 }
 
@@ -307,7 +308,6 @@ p {
 .image-container {
   display: flex;
   justify-content: center;
-  
 }
 
 .image-button {
@@ -319,7 +319,7 @@ p {
 }
 
 .album-filter.active .image-button {
-  border: 2px solid #ff8c00;
+  border: 2px solid #d63384;
 }
 
 .song-filters-container {
@@ -332,4 +332,10 @@ p {
 
 .song-filter-button {
   margin: 5px 0; /* Add some vertical margin between song filter buttons */
+}
+
+.song-filter-button.active {
+  margin: 5px 0; /* Add some vertical margin between song filter buttons */
+  color: black;
+  background: #d63384;
 }

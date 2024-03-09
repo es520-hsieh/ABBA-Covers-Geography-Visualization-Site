@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import BarChart from './barchart.js';
 import Streamgraph from './areachart.js';
 import TreeMapChart from './treemapchart.js';
+import PopupView from './PopupView';
 
 function valuetext(value) {
   return `${value} Year`;
@@ -23,7 +24,12 @@ export default function MultiFilters() {
   const [selectedSongFilters, setSelectedSongFilters] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
   const [showSongFilters, setShowSongFilters] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
+  // Define togglePopup function
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   const albumImages = {
     "Ring Ring": require('./Ring Ring.png'),
@@ -125,7 +131,7 @@ const renderChart = () => {
   '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
 
   const StyledSlider = styled(Slider)(({ theme }) => ({
-    color: theme.palette.mode === 'dark' ? '#ff8c00' : '#ff8c00',
+    color: theme.palette.mode === 'dark' ? '#d63384' : '#d63384',
     height: 2,
     padding: '15px 0',
     '& .MuiSlider-thumb': {
@@ -150,13 +156,13 @@ const renderChart = () => {
       fontWeight: 'bold',
       top: 22,
       backgroundColor: '#181818',
-      color: '#ff8c00', /* Change font color to #ff8c00 */
+      color: '#d63384', /* Change font color to #d63384 */
       '&::before': {
         display: 'on',
       },
       '& *': {
         background: 'transparent',
-        color: '#ff8c00', /* Change text color to #ff8c00 */
+        color: '#d63384', /* Change text color to #d63384 */
       },
     },    
     '& .MuiSlider-track': {
@@ -229,6 +235,9 @@ const renderChart = () => {
         </div>
         <div className="grid-item filter">
           <div className="buttons-container">
+              <button className="button-select" onClick={handleDeselectAll}>
+                  RESET SELECTION
+              </button>
               <div>
                 {filters.map((album, idx) => (
                   <div className={`album-filter ${selectedAlbumFilters.includes(album) ? "active" : ""}`} key={`filters-${idx}`}>
@@ -256,13 +265,13 @@ const renderChart = () => {
                     )}
                   </div>
                 ))}
-                <button className="button-select" onClick={handleDeselectAll}>
-                  RESET
-                </button>
+                
             </div>
           </div>
         </div>
-        <div className="grid-item about"><span class="circle-question">&#x24D8;</span>INFORMATION</div>
+        <div className="grid-item about" onClick={togglePopup}>
+          <span class="circle-question">&#x24D8;</span>INFORMATION
+        </div>
         <div className="grid-item map">
           <Map
             selectedAlbumFilters={selectedAlbumFilters}
@@ -292,16 +301,19 @@ const renderChart = () => {
               marks={marks}
               sx={{
       '& .MuiSlider-mark': {
-        color: 'gray', // 设置标记为浅灰色
+        color: 'gray', // 设置???记为�???��??
       },
       '& .MuiSlider-markLabel': {
-        color: 'gray', // 如果您也想改变标记标签的颜色
+        color: 'gray', // �??????��????��?��?????记�??签�??�????
       },
     }}
             />
           </Box>
         </div>
       </div>
+      {/* Render the pop-up component conditionally */}
+      {showPopup && <PopupView onClose={togglePopup} />}
+      {/* other code... */}
     </div>
   );  
   

@@ -1,4 +1,3 @@
-// CountryPopup.js
 import React, { useState } from 'react';
 import BubbleChart from './bubblechart';
 import Table from '@mui/material/Table';
@@ -18,6 +17,7 @@ import Box from '@mui/material/Box';
 import TableFooter from '@mui/material/TableFooter';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
+import { Grid } from '@mui/material';
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -107,60 +107,61 @@ const CountryPopup = ({ countryName, onClose, bubbleData }) => {
     setPage(0);
   };
 
-  
-
   return (
-    
     <div className="popup">
       <div className="popup-content">
         <h2>{countryName}</h2>
         <button onClick={onClose} className="close-btn">Close</button>
-        <BubbleChart popupCountry={countryName} bubbleData={bubbleData} onBubbleClick={handleBubbleClick} />
-        {clickedBubbleData && (
-
-          <div>
-          <TableContainer sx={{ width: 1/2 }} component={Paper} className="popup-table">
-              <Table size="small" aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell sx={{ width: 1/2 }}>Song</TableCell>
-                    <TableCell sx={{ width: 1/2 }}>Artist</TableCell>
-                    <TableCell sx={{ width: 1/4 }}>Year</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {(rowsPerPage > 0
-                    ? clickedBubbleData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    : clickedBubbleData
-                  ).map((item, index) => (
-                    <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                      {/* Make Song-url clickable */}
-                      <TableCell><a href={item['Song-url']} target="_blank" rel="noopener noreferrer">{item['Song Name']}</a></TableCell>
-                      {/* Make Artist-url clickable */}
-                      <TableCell><a href={item['Artist-url']} target="_blank" rel="noopener noreferrer">{item['Artist']}</a></TableCell>
-                      <TableCell>{item['Release year']}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-                <TableFooter>
-                  <TableRow>
-                  <TablePagination
-                    rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                    colSpan={3} // This should be adjusted according to the number of columns in your table
-                    count={clickedBubbleData.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                    ActionsComponent={TablePaginationActions}
-                  />
-                  </TableRow>
-                </TableFooter>
-              </Table>
-          </TableContainer>
-          </div>
-            
-        )}
+        <Box sx={{ width: '100%' }}>
+          <Grid container spacing={10}>
+            <Grid item xs={6}>
+              <BubbleChart popupCountry={countryName} bubbleData={bubbleData} onBubbleClick={handleBubbleClick} />
+            </Grid>
+            <Grid item xs={6}>
+              {clickedBubbleData && (
+                <div>
+                  <TableContainer component={Paper} className="popup-table">
+                    <Table size="small" aria-label="simple table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Song</TableCell>
+                          <TableCell>Artist</TableCell>
+                          <TableCell>Year</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {(rowsPerPage > 0
+                          ? clickedBubbleData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                          : clickedBubbleData
+                        ).map((item, index) => (
+                          <TableRow key={index}>
+                            <TableCell><a href={item['Song-url']} target="_blank" rel="noopener noreferrer">{item['Song Name']}</a></TableCell>
+                            <TableCell><a href={item['Artist-url']} target="_blank" rel="noopener noreferrer">{item['Artist']}</a></TableCell>
+                            <TableCell>{item['Release year']}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                      <TableFooter>
+                        <TableRow>
+                          <TablePagination
+                            rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                            colSpan={3}
+                            count={clickedBubbleData.length}
+                            rowsPerPage={rowsPerPage}
+                            page={page}
+                            onPageChange={handleChangePage}
+                            onRowsPerPageChange={handleChangeRowsPerPage}
+                            ActionsComponent={TablePaginationActions}
+                          />
+                        </TableRow>
+                      </TableFooter>
+                    </Table>
+                  </TableContainer>
+                </div>
+              )}
+            </Grid>
+          </Grid>
+        </Box>
       </div>
     </div>
   );

@@ -107,7 +107,7 @@ const Map = ({ selectedAlbumFilters, selectedSongFilters, minValue, maxValue }) 
                     'paint': {
                         'fill-color': ['match', ['get', 'name']].concat(
                             ...artistCountsArray.reduce((acc, {country, count}) => {
-                                const color = d3.interpolateBlues(count / maxArtistCount);
+                                const color = d3.interpolatePuRd(count / maxArtistCount);
                                 acc.push(country, color);
                                 return acc;
                             }, []), '#333'
@@ -122,7 +122,7 @@ const Map = ({ selectedAlbumFilters, selectedSongFilters, minValue, maxValue }) 
                     'source': 'states',
                     'layout': {},
                     'paint': {
-                        'line-color': '#ff9d00',
+                        'line-color': '#ff96cb',
                         'line-width': 2,
                     },
                     'filter': ['==', 'name', '']
@@ -209,14 +209,14 @@ const Map = ({ selectedAlbumFilters, selectedSongFilters, minValue, maxValue }) 
                 </div>
             )}
             <div className="map-overlay">
-            <div className="stats-box" style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 999, color: '#ff8c00', padding: '10px' }}>
+            <div className="stats-box" style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', zIndex: 999, color: '#d63384', padding: '10px' }}>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-    <div className="cover-min-box" style={{ marginRight: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #ff8c00', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className="cover-min-box" style={{ marginRight: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #d63384', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <span style={{ fontSize: 'smaller' }}>MIN</span>
         {minArtistCount}
     </div>
-    <img src="./colorLabeling.jpeg" alt="" style={{ borderRadius: '10px', border: '2px solid #ff8c00', width: '300px', height: '20px', objectFit: 'fill' }} />
-    <div className="cover-max-box" style={{ marginLeft: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #ff8c00', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <img src="./color.png" alt="" style={{ borderRadius: '10px', border: '2px solid #d63384', width: '300px', height: '20px', objectFit: 'fill' }} />
+    <div className="cover-max-box" style={{ marginLeft: '10px', backgroundColor: '#181818', padding: '5px', borderRadius: '10px', border: '2px solid #d63384', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <span style={{ fontSize: 'smaller' }}>MAX</span>
         {maxArtistCount}
     </div>
