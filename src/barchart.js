@@ -116,16 +116,20 @@ const MyD3Component = ({minValue, maxValue}) => {
     .call(d3.axisLeft(y)
         .ticks(6)
         .tickSize(-width)
-        .tickFormat(d => d) // æ˜¾ç¤ºåˆ»åº¦å€¼
+        .tickFormat(d => d) // ??¾ç¤º??»åº¦???
     )
     .selectAll(".tick line")
     .attr("stroke", "grey")
     .attr("stroke-width", "2")
-    .attr("stroke-dasharray", "2,2");
+    .attr("stroke-dasharray", "2,2")
+    .style("opacity", 0) // ªì©l³z©ú«×?? 0
+    .transition() // ?¥Î?´ç
+    .duration(750) // ?´ç??ªº«ù???¡A?¦ì?²@¬í
+    .delay((d, i) => i * 100) // ¨C??©µ?¤£¦Pªº???©l??¡A?³y??¥X?ªº®ÄªG
+    .style("opacity", 1); // ³Ì?ªº³z©ú«×?? 1
 
 
-
-    g.selectAll(".domain").remove(); // ç§»é™¤è½´çº¿
+    g.selectAll(".domain").remove(); // ç§»é?¤è½´çº?
 
 
 
@@ -137,30 +141,38 @@ const MyD3Component = ({minValue, maxValue}) => {
       series.selectAll("rect")
       .data(d => d)
       .enter().append("rect")
-      
       .attr("x", d => x(d.data.country))
-      .attr("y", d => y(d[1]))
-      .attr("height", d => y(d[0]) - y(d[1]))
+      
       .attr("width", x.bandwidth())
-        .on("mouseover", function(event, d) {
-          tooltip.transition()
-          .duration(200)
-          .style("opacity", 0.9);
-          tooltip.html(`Country: ${d.data.country}<br>Total: ${d.data.total}<br>` + 
-          `${Object.entries(d.data)
-            .filter(([key]) => key !== 'country' && key !== 'total')
-            .map(([key, value]) => `${key}: ${value}`)
-            .join('<br>')}`)
-        })
-        .on("mousemove", function(event) {
-          tooltip.style("left", (event.pageX) + "px")
-                 .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mouseout", function(d) {
-          tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-        });
+      .attr("y", height) // ªì©l¤Æ??¸my??ªíªº°ª«×¡A¨Ï±o¯x§Î?©³³¡?©l
+      .attr("height", 0) // ªì©l¤Æ??¸m°ª«×?0
+      // ¤U­±?©l???µ{
+      .transition() // ?©l¤@??´ç
+      .duration(750) // ?¸m??«ù???¡A?¦ì?²@¬í
+      .attr("y", d => y(d[1])) // ³Ì?ªºy¦ì¸m
+      .attr("height", d => y(d[0]) - y(d[1])) // ³Ì?ªº°ª«×
+      .on("end", function() { // ¦b???§ô?²K¥[¥æ¤¬
+        d3.select(this)
+          .on("mouseover", function(event, d) {
+            tooltip.transition()
+              .duration(200)
+              .style("opacity", 0.9);
+            tooltip.html(`Country: ${d.data.country}<br>Total: ${d.data.total}<br>` + 
+            `${Object.entries(d.data)
+              .filter(([key]) => key !== 'country' && key !== 'total')
+              .map(([key, value]) => `${key}: ${value}`)
+              .join('<br>')}`)
+          })
+          .on("mousemove", function(event) {
+            tooltip.style("left", (event.pageX) + "px")
+                   .style("top", (event.pageY - 28) + "px");
+          })
+          .on("mouseout", function(d) {
+            tooltip.transition()
+              .duration(500)
+              .style("opacity", 0);
+          });
+      });
 
     // Displaying total numbers above each bar
     const countries = loadedData[0].map(d => d.data.country);
@@ -171,35 +183,46 @@ const MyD3Component = ({minValue, maxValue}) => {
         .attr("y", y(total) - 5)
         .attr("text-anchor", "middle")
         .text(total)
-        .attr("fill", "white");
+        .attr("fill", "white")
+        .attr("opacity", 0) // ªì©l³z©ú«×? 0
+        .transition() // ?¥Î?´ç
+        .duration(750) // ?´ç??ªº«ù???
+        .attr("opacity", 1); // ³Ì?³z©ú«×? 1
     });
-    g.append("g")
-        .attr("class", "axis axis--x")
-        .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x));
+    
+    const xAxis = g.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", `translate(0,${height})`)
+    .call(d3.axisBottom(x));
+
+// ?¸m x ?ªºªì©l³z©ú«×? 0
+xAxis.attr("opacity", 0)
+  .transition() // ?¥Î?´ç
+  .duration(750) // ?´ç??ªº«ù???
+  .attr("opacity", 1); // ³Ì?³z©ú«×? 1
 
         const legend = svg.append("g")
         .attr("class", "legend")
-        .attr("transform", `translate(${margin.left},${height + margin.top + 40})`); // å°†å›¾ä¾‹æ”¾ç½®åœ¨æ¡å½¢å›¾ä¸‹æ–¹
+        .attr("transform", `translate(${margin.left},${height + margin.top + 40})`); // å°???¾ä????¾ç½®??¨æ?¡å½¢??¾ä?????
 
     const legendItem = legend.selectAll(".legend-item")
-        .data(z.domain()) // ä½¿ç”¨é¢œè‰²æ¯”ä¾‹å°ºçš„åŸŸæ¥ç”Ÿæˆå›¾ä¾‹é¡¹
+        .data(z.domain()) // ä½¿ç?¨é????²æ??ä¾?å°ºç???????¥ç???????¾ä??é¡?
         .enter().append("g")
         .attr("class", "legend-item")
-        .attr("transform", (d, i) => `translate(${i * 120}, -10)`); // æ°´å¹³æŽ’åˆ—å›¾ä¾‹é¡¹
+        .attr("transform", (d, i) => `translate(${i * 175}, -10)`); // ¤ô¥­±Æ¦C?¨Ò?
 
     legendItem.append("rect")
-        .attr("width", 18)
-        .attr("height", 18)
-        .attr("fill", z); // ä½¿ç”¨ä¸Žæ¡å½¢å›¾ç›¸åŒçš„é¢œè‰²æ¯”ä¾‹å°º
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", z); // ä½¿ç?¨ä????¡å½¢??¾ç?¸å?????é¢???²æ??ä¾?å°?
 
     legendItem.append("text")
         .attr("x", 24)
         .attr("y", 9)
         .attr("dy", "0.35em")
         .style("text-anchor", "start")
-        .attr("fill", "white") // è®¾ç½®æ–‡æœ¬é¢œè‰²ä¸ºç™½è‰²
-        .text(d => d); // æ˜¾ç¤ºä¸“è¾‘åç§°
+        .attr("fill", "white") // è®¾ç½®?????¬é????²ä¸º??½è??
+        .text(d => d); // ??¾ç¤ºä¸?è¾????ç§?
 
 
   };

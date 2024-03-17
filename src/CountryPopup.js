@@ -109,11 +109,13 @@ const CountryPopup = ({ countryName, onClose, bubbleData }) => {
 
   return (
     <div className="popup">
-      <div className="popup-content">
+      <div className="popup-header">
         <h2>{countryName}</h2>
         <button onClick={onClose} className="close-btn">Close</button>
+      </div>
+      <div className="popup-content">
         <Box sx={{ width: '100%' }}>
-          <Grid container spacing={10}>
+          <Grid container spacing={22}>
             <Grid item xs={6}>
               <BubbleChart popupCountry={countryName} bubbleData={bubbleData} onBubbleClick={handleBubbleClick} />
             </Grid>

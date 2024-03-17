@@ -1,13 +1,13 @@
 .tooltip {
   position: absolute;
-  padding: 0px;
+  padding: 5px;
   font: 12px sans-serif;
-  background: #181818;
+  background: #ffffff;
   border-radius: 8px;
   pointer-events: none;
   opacity: 0;
   color: #d63384;
-  border: 2px solid #d63384; /* Add border */
+  border: 2px solid #ffffff; /* Add border */
   transition: opacity 0.3s;
 
 }

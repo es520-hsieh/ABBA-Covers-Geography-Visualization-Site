@@ -24,15 +24,29 @@ const TreeMapChart = ({ minValue, maxValue }) => {
   }, [loadedData, albumColors]);
 
   const processColors = (data) => {
+    // Define the fixed order of albums
+    const albumOrder = [
+      "Ring Ring",
+      "Waterloo",
+      "ABBA",
+      "Arrival",
+      "The Album",
+      "Voulez-Vous",
+      "Super Trouper",
+      "The Visitors"
+    ];
+
     let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
     const tempAlbumColors = {};
-    data.forEach(d => {
-        if (!tempAlbumColors.hasOwnProperty(d['Album'])) {
-            const mainColor = colorScale(d['Album']);
-            const startColor = d3.rgb(mainColor).darker(0.2);
-            const endColor = d3.rgb(mainColor).brighter(0.2);
-            tempAlbumColors[d['Album']] = d3.scaleSequential([0, 8], d3.interpolateLab(startColor, endColor));
-        }
+    // Assign colors based on the fixed order
+    albumOrder.forEach((album, index) => {
+      if (!tempAlbumColors.hasOwnProperty(album)) {
+        // Use the index to fetch a consistent color from the scale
+        const mainColor = colorScale(index);
+        const startColor = d3.rgb(mainColor).darker(0.2);
+        const endColor = d3.rgb(mainColor).brighter(0.2);
+        tempAlbumColors[album] = d3.scaleSequential([0, 8], d3.interpolateLab(startColor, endColor));
+      }
     });
     setAlbumColors(tempAlbumColors);
   };
@@ -80,54 +94,72 @@ const TreeMapChart = ({ minValue, maxValue }) => {
     .style("border-radius", "5px")
     .style("pointer-events", "none");
 
-const node = d3.select(svgRef.current).selectAll(".node")
-.data(root.leaves())
-.enter().append("g")
-.attr("transform", d => `translate(${d.x0},${d.y0})`);
+    const node = svg.selectAll(".node")
+    .data(root.leaves())
+    .enter().append("g")
+    .attr("transform", d => `translate(${d.x0},${d.y0})`);
 
+// ¯x§Î¤¸¯Àªº??©M¥æ¤¬®ÄªG
 node.append("rect")
-.attr("width", d => d.x1 - d.x0)
-.attr("height", d => d.y1 - d.y0)
-.attr("rx", 5)
-.attr("ry", 5)
-.style("stroke", "white")
-.style("fill", d => {
-const originalIndex = d.parent.data.children.findIndex(child => child.name === d.data.name);
-return albumColors[d.parent.data.name](originalIndex);
-})
-.on("mouseover", function(event, d) {
-d3.select(this)
-.style("stroke", "#d63384")
-.style("stroke-width", 3);
-tooltip.transition()
- .duration(200)
- .style("opacity", .9);
-tooltip.html(d.data.name + "<br/>" + d.value)
- .style("left", (event.pageX) + "px")
- .style("top", (event.pageY - 28) + "px");
-})
-.on("mouseout", function(d) {
-d3.select(this)
-.style("stroke", "white")
-.style("stroke-width", 1);
-tooltip.transition()
- .duration(500)
- .style("opacity", 0);
-});
-      
-svg.selectAll(".node")
-  .data(root.descendants().filter(d => d.depth === 1))
-  .enter().append("text")
-    .attr("dy", "1em") // ?????´å¯¹é½?ï¼?ç¨?å¾®ä??ç§»ä½¿å¾??????¬ä??ç´§è´´ä¸?è¾¹ç??
-    .attr("dx", "5") // æ°´å¹³å¯¹é??ï¼?ç¨?å¾®å?³ç§»ä½¿å???????¬ä??ç´§è´´å·¦è¾¹ç¼?
-    .style("fill", "white") // è®¾ç½®?????¬é????²ä¸º??½è??
-    .style("font-weight", "bold") // è®¾ç½®?????¬ä¸ºç²?ä½?
-    .attr("text-anchor", "start") // å°??????¬é????¹è®¾ç½®ä¸ºèµ·å??ç«¯ï???????©ä??ä»?å·¦å????³æ???????????
-    .text(d => d.data.name)
-    .attr("transform", d => `translate(${d.x0 + 5},${d.y0 + 5})`); // å°??????¬ä??ç½®è®¾ç½®å?°æ??ä¸ªç?©å½¢???å·¦ä??è§?ï¼?è·?ç¦»è¾¹ç¼?5???ç´?
+    .attr("width", d => d.x1 - d.x0)
+    .attr("height", d => d.y1 - d.y0)
+    .attr("rx", 5)
+    .attr("ry", 5)
+    .style("stroke", "white")
+    .style("fill", d => {
+        const originalIndex = d.parent.data.children.findIndex(child => child.name === d.data.name);
+        return albumColors[d.parent.data.name](originalIndex);
+    })
+    .style("fill-opacity", 0) // ªì©l³z©ú«×?¸m?0
+    .on("mouseover", function(event, d) {
+        d3.select(this)
+            .style("stroke", "#d63384")
+            .style("stroke-width", 3);
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+        tooltip.html(d.data.name + "<br/>" + d.value)
+            .style("left", (event.pageX) + "px")
+            .style("top", (event.pageY - 28) + "px");
+    })
+    .on("mouseout", function(d) {
+        d3.select(this)
+            .style("stroke", "white")
+            .style("stroke-width", 1);
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+    })
+    .transition() // ?©l?´ç??
+    .duration(800) // ?¸m??«ù???
+    .style("fill-opacity", 1); // ???§ô?ªº³z©ú«×
 
-      
-  };
+    svg.selectAll(".node")
+    .data(root.descendants().filter(d => d.depth === 1))
+    .enter().append("text")
+      .attr("dy", "1em")
+      .attr("dx", "5")
+      .style("fill", "white")
+      .style("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text(d => d.data.name)
+      // ªì©l¤Ætransform?©Ê¡A¥H«K?©l??©ñ?0¡]§¹¥þ?¤p¡^
+      .attr("transform", d => `translate(${d.x0 + 5},${d.y0 + 5}) scale(0)`)
+      // ³q?transition©MattrTween²K¥[?©ñ??
+      .transition() // ?©l???´ç
+      .duration(800) // ??«ù???
+      .attrTween("transform", function(d) {
+          const x = d.x0 + 5;
+          const y = d.y0 + 5;
+          // interpolateScale±µ¨ü¤@?­S??0¨ì1ªºt??¡A¦}ªð¦^¤@???ªº´¡­È??¦r²Å¦ê
+          const interpolateScale = d3.interpolateNumber(0, 1); // ?0¡]§¹¥þ?¤p¡^¨ì1¡]§¹¥þ®i?¡^
+          return function(t) {
+              // t¬O???¶q¡A?0?¼W¨ì1
+              const scale = interpolateScale(t);
+              return `translate(${x},${y}) scale(${scale})`; // ®ÚÕutªº­È?ºâ?©ñ­È
+          };
+      });
+};
 
   return (
     <svg ref={svgRef} width="1350" height="130"></svg>

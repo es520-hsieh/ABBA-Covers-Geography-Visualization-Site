@@ -44,18 +44,26 @@
     z-index: 1000;
     width: 70%; /* Set width to 80% of the screen */
     max-width: 1200px; /* Optional: Set a maximum width to limit the size */
-    height: 85%; /* Allow the height to adjust based on content */
+    height: 90%; /* Allow the height to adjust based on content */
     max-height: 800px; /* Optional: Set a maximum height to limit the size */
     overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
     scrollbar-color: #d63384 #181818;
     scrollbar-width: thin;
-    box-shadow: 1px 1px 3px 2px #ebaf65;
 }
 
-.popup-content {
+.popup-header {
+    position: sticky;
+    top: 0;
+    background-color: transparent;
+    padding: 10px;
+    z-index: 1001; /* Ensure header stays above content */
     text-align: center;
     color: #d63384;
-}
+  }
+  
+  .popup-content {
+    padding-top: 50px; /* Adjust content padding to accommodate fixed header */
+  }  
 
 .close-btn {
     color: #d63384;

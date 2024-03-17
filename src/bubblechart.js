@@ -1,4 +1,3 @@
-// BubbleChart.js
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
 import './bubblechart.css';
@@ -26,7 +25,7 @@ const BubbleChart = ({ popupCountry, bubbleData, onBubbleClick }) => {
       if (original) {
         original.value += 1;
       } else {
-        albums[item.Album].children.push({ name: item.Original, value: 1, data: item }); // Include data with the bubble
+        albums[item.Album].children.push({ name: item.Original, value: 1, data: item });
       }
     });
 
@@ -37,17 +36,20 @@ const BubbleChart = ({ popupCountry, bubbleData, onBubbleClick }) => {
     const root = d3.hierarchy(hierarchyData).sum(d => d.value).sort((a, b) => b.value - a.value);
     const bubble = d3.pack().size([500, 500]).padding(1.5);
     const svg = d3.select("#bubbleChart").append("svg")
-  .attr("width", 600)
-  .attr("height", 600)
-  .attr("class", "bubble")
-  .style("transform", "translate(0px, -200px)"); // æ·»å??è¿?è¡?ä»??????¥è????´ä??ç½?
+    .attr("width", 600)
+    .attr("height", 600)
+    .attr("class", "bubble")
+    .style("transform", "translate(0px, -200px)");
 
     const nodes = bubble(root).descendants();
     const color = d3.scaleOrdinal(d3.schemeCategory10);
 
     
 
-    const tooltip = d3.select("#chartTooltip");
+    const tooltip = d3.select("#chartTooltip")
+      .style("opacity", 0) // Initially hidden
+      .attr("class", "tooltip") // Assign tooltip class for CSS styling
+      .style("position", "absolute");
 
     const node = svg.selectAll(".node")
       .data(nodes.filter(d => !d.children))
@@ -56,28 +58,38 @@ const BubbleChart = ({ popupCountry, bubbleData, onBubbleClick }) => {
       .attr("transform", d => `translate(${d.x},${d.y})`);
 
     node.append("circle")
-      .attr("r", d => d.r)
+      .attr("r", 0) // initial radius as 0 for animation
       .style("fill", d => color(d.parent.data.name))
       .on("mouseover", function(event, d) {
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+        tooltip.html(`${d.parent.data.name}: ${d.data.name} : ${d.value}`)
+          // ¨Ï¥Îd3.pointer(event)?¨ú¹«?¦ì¸m¡A¦}?¸mTooltip¦ì¸m
+          .style("left", (d3.pointer(event, svg.node())[0] + 10) + "px") // ¹«?¦ì¸m¥k?10px
+          .style("top", (d3.pointer(event, svg.node())[1] - 10) + "px"); // ¹«?¦ì¸m¤W¤è10px
         d3.select(this)
           .style("stroke", "white")
           .style("stroke-width", 3);
-        d3.select(this.parentNode).select("title")
-          .text(`${d.parent.data.name}: ${d.data.name} (${d.value})`);
+        
       })
       
       .on("mouseout", function() {
+        tooltip.transition()
+          .duration(500)
+          .style("opacity", 0);
         d3.select(this)
         .style("stroke", null)
-        .style("stroke-width", null);
-      d3.select(this.parentNode).select("title")
-        .text(""); // Hide text on mouseout
+          .style("stroke-width", null);
       })
       .on("click", function(event, d) {
         if (onBubbleClick) {
           onBubbleClick(d.data); // Pass bubble data to parent component
         }
-      });
+      })
+      .transition() // Apply transition for circle radius to create an animation effect
+      .duration(1000)
+      .attr("r", d => d.r);
 
     node.append("text")
       .attr("dy", ".2em")
