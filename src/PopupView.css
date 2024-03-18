@@ -108,6 +108,12 @@
 }
 
 .profile-text {
-  color: white; /* Set the color of the text */
+  color: #d63384; /* Set the color of the text */
   margin-top: 5px; /* Adjust the spacing between the image and the text */
+}
+
+.name-text {
+  color: #d63384; /* Set the color of the text */
+  font-weight: bold; /* 使文本变为粗体 */
+  margin-bottom: 10px; /* 在<p>标签和下面元素之间添加20px的距离 */
 }

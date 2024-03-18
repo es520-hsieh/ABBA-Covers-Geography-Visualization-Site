@@ -14,7 +14,7 @@ const PopupView = ({ onClose }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     certerMode: true,
-    centerPadding: 20,
+    centerPadding: 10,
   };
   return (
     <div className="popup-container">
@@ -26,12 +26,12 @@ const PopupView = ({ onClose }) => {
 
       <Slider {...settings}>
       <div>
-        <h3>INTRO VIDEO</h3><br/><br/><br/>
+        <h3>DEMO VIDEO</h3><br/><br/><br/>
         <div className="video-container">
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/U4Sm7v6PDY8"
+            src="https://www.youtube.com/embed/sKy4vgPHgNs?si=fQF6Uz64OvVuBNWx"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -50,12 +50,14 @@ const PopupView = ({ onClose }) => {
         <h3>MEET THE TEAM</h3><br/><br/><br/>
         <div className="team-container">
           <div className="team-member">
+            <p className="name-text">HanLien Hsieh<br/>hlhsieh@kth.se</p>
             <img src={heliImage} alt="Heli's Profile" className="profile-image" /><br/>
-            <p className="profile-text">Back-End<br/>Front-End<br/>Development<br/>Data Processing</p>
+            <p className="profile-text">Data Collection<br/>Front-End<br/>Back-End<br/>Usability Testing</p>
           </div>
           <div className="team-member">
+            <p className="name-text">Zhikun Wu<br/>zhikun@kth.se</p>
             <img src={jeremyImage} alt="Jeremy's Profile" className="profile-image" /><br/>
-            <p className="profile-text">Styling<br/>Front-End<br/>Architecture<br/>Data Visualization</p>
+            <p className="profile-text">Data Collection<br/>Front-End<br/>UI Design<br/>Video Production</p>
           </div>
         </div>
       </div>

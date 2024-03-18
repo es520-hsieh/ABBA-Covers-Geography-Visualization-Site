@@ -112,7 +112,7 @@ const Map = ({ selectedAlbumFilters, selectedSongFilters, minValue, maxValue }) 
                                 return acc;
                             }, []), '#333'
                         ),
-                        'fill-opacity': 0.8
+                        'fill-opacity': 0.7
                     }
                 });
 
@@ -122,7 +122,7 @@ const Map = ({ selectedAlbumFilters, selectedSongFilters, minValue, maxValue }) 
                     'source': 'states',
                     'layout': {},
                     'paint': {
-                        'line-color': '#ff96cb',
+                        'line-color': '#ff1e4b',
                         'line-width': 2,
                     },
                     'filter': ['==', 'name', '']
