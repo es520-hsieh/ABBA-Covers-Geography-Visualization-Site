@@ -2,31 +2,20 @@ import React from "react";
 import "./PopupView.css";
 import heliImage from "./heli.png";
 import jeremyImage from "./Jeremy.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 const PopupView = ({ onClose }) => {
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    certerMode: true,
-    centerPadding: 10,
-  };
+
   return (
     <div className="popup-container">
       <div className="popup-body">
         <div className="popup-title">
           <button className="close-button" onClick={onClose}>Close</button>
-          <h2>INFORMATION</h2>
+          
         </div>
 
-      <Slider {...settings}>
       <div>
-        <h3>DEMO VIDEO</h3><br/><br/><br/>
+        <h2>INFORMATION</h2><br/><br/>
+        <h3>DEMO VIDEO</h3><br/>
         <div className="video-container">
           <iframe
             width="560"
@@ -39,15 +28,17 @@ const PopupView = ({ onClose }) => {
           ></iframe>
         </div>
       </div>
+      <br/>
       <div>
-        <h3>ABOUT THE PROJECT</h3><br/><br/><br/><br/><br/>
+        <h3>ABOUT THE PROJECT</h3><br/>
         <p className="italic-text">Welcome to ABBAverse, the ultimate destination for ABBA fans, music enthusiasts, and researchers alike!<br/><br/>
             Dive into a comprehensive compilation of global ABBA covers, showcased through an interactive website designed to highlight the diversity of musical interpretations.
             ABBAverse invites you to explore the universal language of music while celebrating the unique voices and backgrounds of musicians worldwide.<br/><br/>
             Join us on a journey that bridges cultures and showcases the timeless appeal of ABBA's iconic melodies!</p>
       </div>
+      <br/>
       <div>
-        <h3>MEET THE TEAM</h3><br/><br/><br/>
+        <h3>MEET THE TEAM</h3><br/>
         <div className="team-container">
           <div className="team-member">
             <p className="name-text">HanLien Hsieh<br/>hlhsieh@kth.se</p>
@@ -61,6 +52,7 @@ const PopupView = ({ onClose }) => {
           </div>
         </div>
       </div>
+      <br/>
       <div>
         <h3>LEARNING OBJECTIVES</h3><br/>
         <p className="normal-text">
@@ -70,6 +62,7 @@ const PopupView = ({ onClose }) => {
         Finally, in the Evaluate stage, we conducted user testing and analyzed feedback from both users and classmates to gain comprehensive insights into the effectiveness and usability of our interactive visualization project.
         </p>
       </div>
+      <br/>
       <div>
         <h3>DATA & SOURCES</h3><br/>
         <p className="normal-text">
@@ -85,7 +78,6 @@ const PopupView = ({ onClose }) => {
         - Pattuelli, M. C., Weller, C., & Szablya, G. (2011, September). Linked Jazz: an exploratory pilot. In International Conference on Dublin Core and Metadata Applications (pp. 158-164).
         </p>
       </div>
-    </Slider>
 
       </div>
     </div>
