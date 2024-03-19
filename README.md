@@ -1,3 +1,19 @@
+# Project Aim
+
+Welcome to ABBAVERSE, the ultimate destination for ABBA fans, music enthusiasts, and researchers alike!
+
+Dive into a comprehensive compilation of global ABBA covers, showcased through an interactive website designed to highlight the diversity of musical interpretations. ABBAverse invites you to explore the universal language of music while celebrating the unique voices and backgrounds of musicians worldwide.
+
+Join us on a journey that bridges cultures and showcases the timeless appeal of ABBA's iconic melodies!
+
+# Project Demo
+
+[Our Project Website](https://zingy-sherbet-80cf51.netlify.app/)
+
+# Project Video
+
+[![Project Video](https://img.youtube.com/vi/sKy4vgPHgNs/0.jpg)](https://www.youtube.com/watch?v=sKy4vgPHgNs)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
